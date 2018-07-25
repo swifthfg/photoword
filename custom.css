@@ -1,0 +1,56 @@
+body {
+	font-family: Raleway;
+}
+
+.m-l-md {
+	margin-left: 15px;
+}
+
+.m-b-md {
+	margin-bottom: 15px;
+}
+
+.m-r-md {
+	margin-right: 15px;
+}
+
+.m-t-md {
+	margin-top: 15px;
+}
+
+.m-t-lg {
+	margin-top: 30px;
+}
+
+.landing-photo {
+	position: relative;
+    text-align: center;
+    color: white;
+    background-color: #000000; 
+	height: 800px;
+}
+
+.landing-photo img {
+	opacity: 0.6;
+	width: 100%;
+	height: 1000px;
+}
+
+.text-center-left {
+	position: absolute;
+	top: 45%;
+	left: 10%;
+	text-align: left;
+}
+
+.texture-black {
+
+}
+
+.font-light {
+	font-weight: 300;
+}
+
+.font-bold {
+	font-weight: 700;
+}
