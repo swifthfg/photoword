@@ -81,3 +81,8 @@ body {
 #word::-ms-input-placeholder { /* Microsoft Edge */
     color: #eee;
 }
+
+#construct-btn {
+	background: #000;
+	color: #eef;
+}
