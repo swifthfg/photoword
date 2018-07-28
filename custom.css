@@ -24,9 +24,9 @@ body {
 
 .landing-photo {
 	position: relative;
-    text-align: center;
-    color: white;
-    background-color: #000000; 
+	text-align: center;
+	color: white;
+	background-color: #000000;
 }
 
 .landing-photo img {
@@ -37,7 +37,7 @@ body {
 .text-center-left {
 	position: absolute;
 	top: 20%;
-	left: 10%;
+	left: 15%;
 	text-align: left;
 }
 
@@ -58,7 +58,7 @@ body {
 	position: absolute;
 	top: 55%;
 	left: 50%;
-    transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 	text-align: center;
 }
 
@@ -70,16 +70,16 @@ body {
 }
 
 #word::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #eee ;
-    opacity: 1; /* Firefox */
+	color: #eee ;
+	opacity: 1; /* Firefox */
 }
 
 #word:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #eee;
+	color: #eee;
 }
 
 #word::-ms-input-placeholder { /* Microsoft Edge */
-    color: #eee;
+	color: #eee;
 }
 
 #construct-btn {
