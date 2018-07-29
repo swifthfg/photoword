@@ -37,7 +37,7 @@ var controller = (function(dataCtrl, UICtrl) {
 	}
 
 	var getTokenizedText = function(word, canvasWidth) {
-		var realString = word.toUpperCase();
+		var realString = word ? word.toUpperCase() : 'ALWAYS MOVE FORWARD';
 		var wordOfText = realString.split(' ');
 		var lineLengthPx = (canvasWidth / 2) + 100;
 
@@ -114,7 +114,7 @@ var controller = (function(dataCtrl, UICtrl) {
 		var canvas = new fabric.Canvas('mainImageCnv');
 
 		// https://images.pexels.com/photos/671915/pexels-photo-671915.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
-		fabric.util.loadImage('img/adventure4.jpg', function(img) {
+		fabric.util.loadImage('img/adventure2.jpg', function(img) {
 			var imgInstance = new fabric.Image(img, {
 				evented: false,
 				hasControls: false,

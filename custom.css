@@ -98,3 +98,8 @@ body {
 .modal-xlg {
 	max-width: 1500px;
 }
+
+#downloadImageLink {
+	color: white;
+	background: #7B1FA2;
+}
