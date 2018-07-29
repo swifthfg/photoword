@@ -32,11 +32,14 @@ var UIController = (function(){
 
 var controller = (function(dataCtrl, UICtrl) {
 
+	var getRandomPhoto = function() {
+
+	}
+
 	var getTokenizedText = function(word, canvasWidth) {
 		var realString = word.toUpperCase();
-		var wordOfText = realString.split(' ').length > 1 ? realString.split(' ') : [realString] ;
+		var wordOfText = realString.split(' ');
 		var lineLengthPx = (canvasWidth / 2) + 100;
-		// var charCountForLine = Math.floor(lineLength / 75);
 
 		var currentLinePx = 0;
 		var lineStr = '';
@@ -68,7 +71,14 @@ var controller = (function(dataCtrl, UICtrl) {
 	var loadFonts = function() {
 		WebFont.load({
 			google: {
-				families: ['Merienda', 'Montserrat']
+				families: [	'Merienda',
+							'Montserrat',
+							'Oswald',
+							'Roboto Condensed',
+							'Muli',
+							'Lobster',
+							'Yanone Kaffeesatz',
+							'Shadows Into Light']
 			}
 		});
 	}
@@ -103,7 +113,8 @@ var controller = (function(dataCtrl, UICtrl) {
 
 		var canvas = new fabric.Canvas('mainImageCnv');
 
-		fabric.util.loadImage('https://images.pexels.com/photos/671915/pexels-photo-671915.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', function(img) {
+		// https://images.pexels.com/photos/671915/pexels-photo-671915.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
+		fabric.util.loadImage('img/adventure4.jpg', function(img) {
 			var imgInstance = new fabric.Image(img, {
 				evented: false,
 				hasControls: false,
@@ -119,7 +130,7 @@ var controller = (function(dataCtrl, UICtrl) {
 			var canvasWord = new fabric.Text(wordValue, {
 				left: dataCtrl.getConstants().X_START,
 				top: canvas.height / dataCtrl.getConstants().Y_START_RATIO,
-				fontFamily: 'Merienda',
+				fontFamily: 'Shadows Into Light',
 				textAlign: 'left',
 				fontSize: '110',
 				stroke: '#FFFFFF',
