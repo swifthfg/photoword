@@ -6,6 +6,7 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="fabric.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.10/webfont.js"></script>
 
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
 		<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
@@ -18,7 +19,7 @@
 	<body>
 		<div class="container-fluid">
 			<div class="landing-photo">
-				<img src="img/nature4.jpg">
+				<img src="img/adventure.jpg">
 				<div class="text-center-left">
 					<h4 class="font-light">WELCOME TO PHOTOWORD</h4>
 					<h1 class="font-bold">Be creative</h1>
@@ -28,21 +29,44 @@
 				<div class="center">
 					<form>
 						<div class="form-group">
-							<input id="word" class="form-control form-control-lg" type="text" autocomplete="off" placeholder="Enter your word...">
+							<input id="word" class="form-control form-control-lg" type="text" autocomplete="off" placeholder="Enter your words...">
 						</div>
-						<button type="button" id="construct-btn" class="btn">Construct PhotoWord</button>
+						<button type="button" id="construct-btn" class="btn" data-toggle="modal" data-target="#canvasModal">Construct PhotoWord</button>
 					</form>
 				</div>
 			</div>
 		</div>
 
-		<!-- <div class="container">
-			<div class="row text-center contruction-container">
-				<div class="col-sm-12 text-center m-t-lg" id="photo-canvas">
-					<canvas id="mainImageCnv" width="1200" height="1200" ></canvas>
+		<div class="modal fade" id="canvasModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="canvasModalTitle">PhotoWord</h5>
+						<button type="button" class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div id="modalContainer" class="container">
+							<div class="row text-center canvas-container">
+								<div class="col-xs-12 text-center m-t-lg" id="photo-canvas">
+									<canvas id="mainImageCnv"></canvas>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<img class="img" id="mainImage" crossOrigin="Anonymous">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<a id="downloadImageLink" class="btn btn-primary">Save Image</a>
+					</div>
 				</div>
 			</div>
-		</div> -->
+		</div>
 
 		<script src="app.js"></script>
 	</body>

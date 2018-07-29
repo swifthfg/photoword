@@ -1,6 +1,6 @@
 var dataController = (function() {
 	var constants = {
-		X_START: 80,
+		X_START: 130,
 		Y_START_RATIO: 2.35,
 		TRIAL_IMAGE_SRC: 'img/adv.jpg',
 	};
@@ -13,58 +13,138 @@ var dataController = (function() {
 })();
 
 var UIController = (function(){
+	var mainImage = document.getElementById('mainImage');
 	var constructBtn = document.getElementById('construct-btn');
 	var word = document.getElementById('word');
-
+	var downloadImageLink = document.getElementById('downloadImageLink');
 
 	return {
 		getUIElements: function() {
 			return {
 				constructBtn: constructBtn,
 				word: word,
+				mainImage: mainImage,
+				downloadImageLink: downloadImageLink
 			}
 		}
 	};
-
 })();
 
 var controller = (function(dataCtrl, UICtrl) {
+
+	var getTokenizedText = function(word, canvasWidth) {
+		var realString = word.toUpperCase();
+		var wordOfText = realString.split(' ').length > 1 ? realString.split(' ') : [realString] ;
+		var lineLengthPx = (canvasWidth / 2) + 100;
+		// var charCountForLine = Math.floor(lineLength / 75);
+
+		var currentLinePx = 0;
+		var lineStr = '';
+		var resultStr = '';
+		var wordCount = wordOfText.length;
+		for(var i = 0; i <  wordCount; i++) {
+			var charCountOfWord = wordOfText[i].length;
+			var pxOfWord = (charCountOfWord + 1) * 75;
+			currentLinePx += pxOfWord;
+
+			if (currentLinePx > lineLengthPx) {
+				lineStr += wordOfText[i];
+				resultStr += lineStr + '\n';
+				lineStr = '';
+				currentLinePx = 0;
+				continue;
+			}
+
+			if (i == wordCount - 1) {
+				lineStr += wordOfText[i];
+				resultStr += lineStr;
+			} else {
+				lineStr += wordOfText[i] + ' ';
+			}
+		}
+		return resultStr;
+	}
+
+	var loadFonts = function() {
+		WebFont.load({
+			google: {
+				families: ['Merienda', 'Montserrat']
+			}
+		});
+	}
+
+	var dataURLToBlob = function(dataURI) {
+		var binStr = atob(dataURI.split(',')[1]);
+		var lenBin = binStr.length;
+		uriArr = new Uint8Array(lenBin);
+
+		for (var i = 0; i < lenBin; i++) {
+			uriArr[i] = binStr.charCodeAt(i);
+		}
+
+		return new Blob([uriArr]);
+	}
+
+	var getBlobURL = function(canvas) {
+		var dURL = canvas.toDataURL();
+		return URL.createObjectURL(dataURLToBlob(dURL));
+	}
+
+	var downloadCanvas = function(link, filename, canvas) {
+		link.href = getBlobURL(canvas);
+		link.download = filename;
+	};
+
 	var constructImage = function() {
 		var word = UICtrl.getUIElements().word;
-		console.log(word.value);
-
+		var rawWordValue = word.value;
+		var mainImage = UICtrl.getUIElements().mainImage;
+		var downloadImageLink = UICtrl.getUIElements().downloadImageLink;
 
 		var canvas = new fabric.Canvas('mainImageCnv');
-		var img = new Image();
-		img.src = dataCtrl.getConstants().TRIAL_IMAGE_SRC;
 
-		img.onload = function() {
+		fabric.util.loadImage('https://images.pexels.com/photos/671915/pexels-photo-671915.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', function(img) {
 			var imgInstance = new fabric.Image(img, {
-				scaleX: canvas.width / img.width,
-				scaleY: canvas.height / img.height,
 				evented: false,
 				hasControls: false,
-				selectable: false
+				selectable: false,
 			});
+			canvas.setWidth(img.width);
+			canvas.setHeight(img.height);
+			canvas.setBackgroundImage(imgInstance, canvas.renderAll.bind(canvas));
 
-			canvas.add(imgInstance);
-			var canvasWord = new fabric.Text('BE AN ADWENTURER \n NEVER STOP', {
+			var wordValue = getTokenizedText(rawWordValue, img.width);
+
+			// PLACE TEXT ON CANVAS IMAGE
+			var canvasWord = new fabric.Text(wordValue, {
 				left: dataCtrl.getConstants().X_START,
 				top: canvas.height / dataCtrl.getConstants().Y_START_RATIO,
-				fontFamily: 'Raleway',
-				textAlign: 'center',
-				fontSize: '90',
+				fontFamily: 'Merienda',
+				textAlign: 'left',
+				fontSize: '110',
 				stroke: '#FFFFFF',
 				fill: '#FFFFFF'
-
 			});
+
+			console.log(canvasWord.measureLine(0));
+
+
 			canvas.add(canvasWord);
-		}
+			canvas.renderAll();
+
+			mainImage.src = canvas.toDataURL();
+
+		}, null, {crossOrigin: 'Anonymous'});
+
+		downloadImageLink.addEventListener('click', function() {
+			downloadCanvas(event.target, 'photoWord.png', canvas);
+		}, false);
 
 		word.value = '';
 	};
 
 	var init = function() {
+		loadFonts();
 		var constructBtn = UICtrl.getUIElements().constructBtn;
 		constructBtn.addEventListener('click', function() {
 			constructImage();
@@ -72,11 +152,10 @@ var controller = (function(dataCtrl, UICtrl) {
 	};
 
 	return {
-		init: function() {
+		initApp: function() {
 			init();
-		} 
+		}
 	};
 })(dataController, UIController);
 
-
-controller.init();
+controller.initApp();
