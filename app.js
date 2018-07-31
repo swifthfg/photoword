@@ -5,9 +5,15 @@ var dataController = (function() {
 		TRIAL_IMAGE_SRC: 'img/adv.jpg',
 	};
 
+	var photoUrls = ['img/beautiful-bird-s-eye-view-boats-1039302.jpg', 'img/road.jpg', 'img/animals-birds-dawn-417142.jpg', 'img/astronomy-cosmos-dark-733475.jpg', 'img/green-leaves-plant-1104509.jpg', 'img/bloom-blossom-flora-101472.jpg', 'img/daylight-forest-glossy-443446.jpg', 'img/architecture-big-ben-blur-635609.jpg', 'img/adv.jpg', 'img/flora-flowes-green-122429.jpg', 'img/beach-boardwalk-branches-127513 (1).jpg', 'img/animals-black-and-white-equine-52500.jpg', 'img/astrology-astronomy-constellation-958363.jpg', 'img/beach-boardwalk-branches-127513.jpg', 'img/daylight-environment-forest-459225.jpg', 'img/bloom-blooming-country-145685.jpg', 'img/backlit-dawn-dusk-358137.jpg', 'img/fog-foggy-forest-158607.jpg', 'img/clouds-cloudy-cold-167699.jpg', 'img/4k-wallpaper-background-background-image-1261730.jpg', 'img/bulb-close-up-crack-40889.jpg', 'img/beach-boardwalk-boat-132037.jpg', 'img/bird-s-eye-view-colors-curve-1117267.jpg', 'img/beautiful-daylight-environment-709552.jpg', 'img/adventure-architecture-bank-458857.jpg', 'img/dried-leaves-environment-forest-1027393.jpg', 'img/clouds-dawn-dolomites-1278540.jpg', 'img/adult-architecture-art-959058.jpg', 'img/bright-clear-close-up-401107.jpg', 'img/dark-fashion-feet-671915.jpg', 'img/clouds-daylight-daytime-1096891.jpg', 'img/forest-landscape-light-35600.jpg', 'img/architecture-buildings-business-1248513.jpg', 'img/architecture-bridge-city-991438.jpg', 'img/adventure4.jpg', 'img/cool-wallpaper-forest-hawaii-38136.jpg', 'img/nature4.jpg', 'img/clouds-cloudy-conifers-247478.jpg', 'img/astronomy-beach-coast-912587.jpg', 'img/nature3.jpg', 'img/blur-charge-close-up-256302.jpg', 'img/arches-national-park-dark-dusk-33688.jpg', 'img/clouds-dawn-dusk-157039.jpg', 'img/blur-dawn-dusk-1273431.jpg', 'img/adventure2.jpg', 'img/abendstimmung-alternative-energy-dawn-414805.jpg', 'img/adventure3.jpg', 'img/adventure-bench-clouds-1096658.jpg', 'img/beach-cc0-coast-103567.jpg', 'img/animal-animals-backlit-236636.jpg', 'img/angry-animal-big-302304.jpg', 'img/fog-foggy-forest-96491.jpg', 'img/aerial-view-beach-beautiful-462162.jpg', 'img/beach-high-angle-shot-island-673865.jpg', 'img/forest-landscape-mountain-range-129105.jpg', 'img/action-athletes-bike-533540.jpg', 'img/android-wallpaper-drops-of-water-iphone-wallpaper-8633.jpg', 'img/bench-carved-stones-cemetery-257360.jpg', 'img/architecture-bridge-city-257703.jpg', 'img/adult-back-view-blur-287335.jpg', 'img/daylight-forest-nature-589802.jpg', 'img/branch-leaves-macro-1259813.jpg', 'img/nature2.jpg', 'img/adventure.jpg', 'img/adult-athlete-black-and-white-163403.jpg', 'img/architecture-buildings-city-1277546.jpg', 'img/autumn-daylight-fall-589841.jpg', 'img/abraham-lincoln-abundance-agriculture-691571.jpg', 'img/abandoned-forest-industry-34950.jpg', 'img/adult-adventure-air-1272392.jpg', 'img/clouds-cloudy-sky-countryside-1034887.jpg', 'img/cold-dark-eerie-414144.jpg', 'img/blur-chains-chrome-220237.jpg', 'img/cool-wallpaper-dawn-dusk-66997.jpg', 'img/asphalt-beautiful-fashion-373289.jpg', 'img/nature1.jpg', 'img/boat-boating-close-up-275637.jpg', 'img/blonde-hair-blurred-background-dress-852793.jpg', 'img/beautiful-coast-h2o-1001682.jpg', 'img/architecture-building-city-1121782.jpg'];
+
 	return {
 		getConstants: function() {
 			return constants;
+		},
+
+		getPhotoUrls: function() {
+			return photoUrls;
 		}
 	}
 })();
@@ -32,10 +38,15 @@ var UIController = (function(){
 
 var controller = (function(dataCtrl, UICtrl) {
 
-	var getRandomPhoto = function() {
-
+	var getRandomInt = function(max) {
+		return Math.floor(Math.random() * Math.floor(max));
 	}
 
+	var getRandomPhoto = function() {
+		var photoUrls = dataCtrl.getPhotoUrls();
+		var randomIndex = getRandomInt(photoUrls.length);
+		return photoUrls[randomIndex];
+	}
 	var getTokenizedText = function(word, canvasWidth) {
 		var realString = word ? word.toUpperCase() : 'ALWAYS MOVE FORWARD';
 		var wordOfText = realString.split(' ');
@@ -114,7 +125,7 @@ var controller = (function(dataCtrl, UICtrl) {
 		var canvas = new fabric.Canvas('mainImageCnv');
 
 		// https://images.pexels.com/photos/671915/pexels-photo-671915.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
-		fabric.util.loadImage('img/adventure2.jpg', function(img) {
+		fabric.util.loadImage(getRandomPhoto(), function(img) {
 			var imgInstance = new fabric.Image(img, {
 				evented: false,
 				hasControls: false,
@@ -137,8 +148,7 @@ var controller = (function(dataCtrl, UICtrl) {
 				fill: '#FFFFFF'
 			});
 
-			console.log(canvasWord.measureLine(0));
-
+			// console.log(canvasWord.measureLine(0));
 
 			canvas.add(canvasWord);
 			canvas.renderAll();
