@@ -1,4 +1,11 @@
 body {
+	background: url('img/adventure4.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100%;
+	overflow: hidden;
 	font-family: Raleway;
 }
 
@@ -22,40 +29,12 @@ body {
 	margin-top: 30px;
 }
 
-.landing-photo {
-	position: relative;
-	text-align: center;
-	color: white;
-	background-color: #000000;
-}
-
-.landing-photo img {
-	opacity: 0.7;
-	width: 100%;
-}
-
-.text-center-left {
-	position: absolute;
-	top: 20%;
-	left: 15%;
-	text-align: left;
-}
-
 .font-light {
 	font-weight: 300;
 }
 
 .font-bold {
 	font-weight: 700;
-}
-
-.center {
-	width: 70%;
-	position: absolute;
-	top: 55%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align: center;
 }
 
 #word {
@@ -102,4 +81,9 @@ body {
 #downloadImageLink {
 	color: white;
 	background: #7B1FA2;
+}
+
+.landing-text {
+	margin-top: 15%;
+	color: #fff;
 }

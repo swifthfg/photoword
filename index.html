@@ -17,24 +17,28 @@
 		<title>PhotoWord | New Kind of Mood Lifter</title>
 	</head>
 	<body>
-		<div class="container-fluid">
-			<div class="landing-photo">
-				<img src="img/adventure4.jpg">
-				<div class="text-center-left">
+		<div class="container">
+			<div class="row landing-text">
+				<div class="col-sm-12">
 					<h4 class="font-light">WELCOME TO PHOTOWORD</h4>
 					<h1 class="font-bold">Be creative</h1>
 					<h1 class="font-bold">Control your mind</h1>
 					<h1 class="font-bold">Reach best version of yourself</h1>
 				</div>
-				<div class="center">
-					<form>
-						<div class="form-group">
-							<input id="word" class="form-control form-control-lg" type="text" autocomplete="off" placeholder="Enter your words...">
-						</div>
-						<button type="button" id="construct-btn" class="btn" data-toggle="modal" data-target="#canvasModal">Construct PhotoWord</button>
-					</form>
-				</div>
 			</div>
+
+			<form class="m-t-lg">
+				<div class="row">
+					<div class="col-sm-12">
+						<input id="word" class="form-control form-control-lg" type="text" autocomplete="off" placeholder="Enter your words...">
+					</div>
+				</div>
+				<div class="row m-t-md">
+					<div class="col-sm-12 text-center">
+						<button type="button" id="construct-btn" class="btn" data-toggle="modal" data-target="#canvasModal">Construct PhotoWord</button>
+					</div>
+				</div>
+			</form>
 		</div>
 
 		<div class="modal fade" id="canvasModal" tabindex="-1" role="dialog">
