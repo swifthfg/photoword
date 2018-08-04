@@ -14,7 +14,7 @@
 		<link type="text/css" rel="stylesheet" href="custom.css">
 		<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900" rel="stylesheet">
 
-		<title>PhotoWord | New Kind of Mood Lifter</title>
+		<title>PhotoWord</title>
 	</head>
 	<body>
 		<div class="container">
@@ -26,8 +26,7 @@
 					<h1 class="font-bold">Reach best version of yourself</h1>
 				</div>
 			</div>
-
-			<form class="m-t-lg">
+			<form class="m-t-lg word-form">
 				<div class="row">
 					<div class="col-sm-12">
 						<input id="word" class="form-control form-control-lg" type="text" autocomplete="off" placeholder="Enter your words...">
@@ -35,7 +34,7 @@
 				</div>
 				<div class="row m-t-md">
 					<div class="col-sm-12 text-center">
-						<button type="button" id="construct-btn" class="btn" data-toggle="modal" data-target="#canvasModal">Construct PhotoWord</button>
+						<button type="button" id="construct-btn" class="btn" data-toggle="modal" data-target="#canvasModal">PhotoWord</button>
 					</div>
 				</div>
 			</form>
@@ -53,13 +52,36 @@
 					<div class="modal-body">
 						<div id="modalContainer" class="container">
 							<div class="row text-center canvas-container">
-								<div class="col-xs-12 text-center m-t-lg" id="photo-canvas">
+								<div class="col-sm-12 text-center m-t-lg" id="photo-canvas">
 									<canvas id="mainImageCnv"></canvas>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-xs-12 text-center">
+								<div class="col-sm-9 text-center">
 									<img class="img" id="mainImage" crossOrigin="Anonymous">
+								</div>
+								<div class="col-sm-3">
+									<div class="row">
+										<form>
+											<input class="form-control form-control-lg" type="text" id="fontSizeBox" name="fontSizeBox" placeholder="Enter fontsize">
+											<button class="btn btn-primary" id="fsButton" type="button" name="fsButton">SetSize</button>
+										</form>
+									</div>
+									<div class="row m-t-lg">
+										<div style="width:200px;">
+											<select id="fontFamilySelect">
+												<option value="0">Font Family</option>
+												<option value="Merienda">Merienda</option>
+												<option value="Montserrat">Montserrat</option>
+												<option value="Oswald">Oswald</option>
+												<option value="Roboto Condensed">Roboto Condensed</option>
+												<option value="Muli">Muli</option>
+												<option value="Lobster">Lobster</option>
+												<option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
+												<option value="Shadows Into Light">Shadows Into Light</option>
+											</select>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

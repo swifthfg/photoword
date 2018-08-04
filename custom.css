@@ -1,5 +1,5 @@
 body {
-	background: url('img/adventure4.jpg') no-repeat center center fixed;
+	background: url('img/adventure6.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -86,4 +86,8 @@ body {
 .landing-text {
 	margin-top: 15%;
 	color: #fff;
+}
+
+.word-form {
+	margin-top: 80px;
 }
