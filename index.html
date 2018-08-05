@@ -9,7 +9,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.10/webfont.js"></script>
 
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
-		<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+		<!-- <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css"> -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 		<link type="text/css" rel="stylesheet" href="custom.css">
 		<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900" rel="stylesheet">
@@ -17,6 +17,7 @@
 		<title>PhotoWord</title>
 	</head>
 	<body>
+		<div class="wait-spinner hidden"> <img src="img/loader.gif" /> </div>
 		<div class="container">
 			<div class="row landing-text">
 				<div class="col-sm-12">
@@ -34,18 +35,18 @@
 				</div>
 				<div class="row m-t-md">
 					<div class="col-sm-12 text-center">
-						<button type="button" id="construct-btn" class="btn" data-toggle="modal" data-target="#canvasModal">PhotoWord</button>
+						<button type="button" id="construct-btn" class="btn">PhotoWord</button>
 					</div>
 				</div>
 			</form>
 		</div>
 
-		<div class="modal fade" id="canvasModal" tabindex="-1" role="dialog">
+		<div class="modal fade" data-backdrop="static" data-keyboard="false" id="canvasModal" tabindex="-1" role="dialog">
 			<div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="canvasModalTitle">PhotoWord</h5>
-						<button type="button" class="close" data-dismiss="modal">
+						<button type="button" class="close close-btn" data-dismiss="modal">
 							<span>&times;</span>
 						</button>
 					</div>
@@ -63,7 +64,7 @@
 								<div class="col-sm-3">
 									<div class="row">
 										<form>
-											<input class="form-control form-control-lg" type="text" id="fontSizeBox" name="fontSizeBox" placeholder="Enter fontsize">
+											<input class="form-control form-control-lg" type="text" id="fontSizeBox" name="fontSizeBox" placeholder="Enter fontsize" autocomplete="off">
 											<button class="btn btn-primary" id="fsButton" type="button" name="fsButton">SetSize</button>
 										</form>
 									</div>
@@ -87,7 +88,7 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Close</button>
 						<a id="downloadImageLink" class="btn btn-primary">Save PhotoWord</a>
 					</div>
 				</div>

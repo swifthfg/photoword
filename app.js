@@ -155,6 +155,7 @@ var controller = (function(dataCtrl, UICtrl) {
 	};
 
 	var constructImage = function() {
+		$(".hidden").show();
 		var word = UICtrl.getUIElements().word;
 		var rawWordValue = word.value;
 		var downloadImageLink = UICtrl.getUIElements().downloadImageLink;
@@ -193,7 +194,8 @@ var controller = (function(dataCtrl, UICtrl) {
 			canvas.renderAll();
 
 			mainImage.src = canvas.toDataURL();
-
+			$(".hidden").hide();
+			$('#canvasModal').modal('show');
 		}, null, {crossOrigin: 'Anonymous'});
 
 		downloadImageLink.addEventListener('click', function() {
@@ -215,7 +217,7 @@ var controller = (function(dataCtrl, UICtrl) {
 			constructImage();
 		});
 
-		fsButton.addEventListener('click', function(){
+		fsButton.addEventListener('click', function(){ // TODO add loader
 			var value = fontSizeBox.value;
 			if (value && !isNaN(value)) {
 				canvasWord.fontSize = value;
@@ -228,6 +230,10 @@ var controller = (function(dataCtrl, UICtrl) {
 			canvasWord.fontFamily = this.value;
 			canvas.renderAll();
 			mainImage.src = canvas.toDataURL();
+		});
+
+		$('.close-btn').click(function() {
+			mainImage.src = "";
 		});
 	};
 
