@@ -58,30 +58,69 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-sm-9 text-center">
+								<div class="col-sm-9 col-12 text-center">
 									<img class="img" id="mainImage" crossOrigin="Anonymous">
 								</div>
-								<div class="col-sm-3">
-									<div class="row">
-										<form>
-											<input class="form-control form-control-lg" type="text" id="fontSizeBox" name="fontSizeBox" placeholder="Enter fontsize" autocomplete="off">
-											<button class="btn btn-primary" id="fsButton" type="button" name="fsButton">SetSize</button>
-										</form>
-									</div>
-									<div class="row m-t-lg">
-										<div style="width:200px;">
-											<select id="fontFamilySelect">
-												<option value="0">Font Family</option>
-												<option value="Merienda">Merienda</option>
-												<option value="Montserrat">Montserrat</option>
-												<option value="Oswald">Oswald</option>
-												<option value="Roboto Condensed">Roboto Condensed</option>
-												<option value="Muli">Muli</option>
-												<option value="Lobster">Lobster</option>
-												<option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
-												<option value="Shadows Into Light">Shadows Into Light</option>
-											</select>
+								<div class="col-sm-3 col-12">
+									<div class="row m-t-lg input-group">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="fontSizeSelect">Font Size</label>
 										</div>
+										<select class="custom-select" id="fontSizeSelect">
+											<option value="90">90</option>
+											<option value="100">100</option>
+											<option value="110">110</option>
+											<option value="120">120</option>
+											<option value="130">130</option>
+											<option value="140">140</option>
+											<option value="150">150</option>
+											<option value="165">165</option>
+											<option value="180">180</option>
+											<option value="200"> 200</option>
+											<option value="220">220</option>
+											<option value="230">230</option>
+											<option value="240">240</option>
+										</select>
+									</div>
+
+									<div class="row m-t-lg input-group">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="fontFamilySelect">Font Family</label>
+										</div>
+										<select class="custom-select" id="fontFamilySelect">
+											<option value="0">Arial</option>
+											<option value="Merienda">Merienda</option>
+											<option value="Montserrat">Montserrat</option>
+											<option value="Oswald">Oswald</option>
+											<option value="Roboto Condensed">Roboto Condensed</option>
+											<option value="Muli">Muli</option>
+											<option value="Lobster">Lobster</option>
+											<option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
+											<option value="Shadows Into Light">Shadows Into Light</option>
+										</select>
+									</div>
+
+									<div class="row m-t-lg input-group">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="fontColorSelect">Font Color</label>
+										</div>
+										<select class="custom-select" id="fontColorSelect">
+											<option value="#E0F7FA">Cyan</option>
+											<option value="#FFFFFF">White</option>
+											<option value="#ECEFF1">Blue Gray</option>
+											<option value="#EEEEEE">Gray</option>
+											<option value="#000000">Black</option>
+											<option value="#40C4FF">Light Blue</option>
+											<option value="#4527A0">Deep Purple</option>
+											<option value="#E53935">Red</option>
+											<option value="#BA68C8">Purple</option>
+											<option value="#2196F3">Blue</option>
+											<option value="#4DB6AC">Teal</option>
+											<option value="#EEFF41"> Lime</option>
+											<option value="#2E7D32">Green</option>
+											<option value="#F57C00">Orange</option>
+											<option value="#6D4C41">Brown</option>
+										</select>
 									</div>
 								</div>
 							</div>
