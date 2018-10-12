@@ -111,7 +111,16 @@ var dataController = (function() {
 		'https://images.pexels.com/photos/220444/pexels-photo-220444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
 		'https://images.pexels.com/photos/32237/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
 		'https://images.pexels.com/photos/119573/pexels-photo-119573.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-		'https://images.pexels.com/photos/433155/pexels-photo-433155.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+		'https://images.pexels.com/photos/433155/pexels-photo-433155.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+		'https://images.pexels.com/photos/1468038/pexels-photo-1468038.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+		'https://images.pexels.com/photos/573294/pexels-photo-573294.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+		'https://images.pexels.com/photos/1468359/pexels-photo-1468359.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+		'https://images.pexels.com/photos/1468704/pexels-photo-1468704.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+		'https://images.pexels.com/photos/1469777/pexels-photo-1469777.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+		'https://images.pexels.com/photos/691034/pexels-photo-691034.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+		'https://images.pexels.com/photos/1435189/pexels-photo-1435189.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+		'https://images.pexels.com/photos/1461035/pexels-photo-1461035.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+		'https://images.pexels.com/photos/1461315/pexels-photo-1461315.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'
 	]
 
 	return {
